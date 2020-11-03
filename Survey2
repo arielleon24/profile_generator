@@ -1,0 +1,22 @@
+const readline = require("readline");
+const answers = [];
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.question("What is your nickname? ", (answer) => {
+  console.log(`Pleasure to meet you ${answer}!`);
+  answers.push(answer);
+  rl.question("Where are you from? ", (answer) => {
+    console.log(`I heard ${answer} is well know for it's beautiful scenery`);
+    answers.push(answer);
+    rl.question("What is that country best known for", (answer) => {
+      console.log(`INteresting! I love ${answer}!`);
+      answers.push(answer);
+      console.log(`Hey ${answers[0]}! It was great to hear about your country ${answers[1]} and their popular ${answers[2]}`)
+      rl.close();
+    });
+  });
+});
